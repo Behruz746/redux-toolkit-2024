@@ -20,8 +20,19 @@ const todoSlice = createSlice({
         completed: false,
       });
     },
-    removeTodo(state, action) {},
-    toggleTodo(state, action) {},
+
+    removeTodo(state, action) {
+      state.todos = state.todos.filter((todo) => {
+        return todo.id !== action.payload.id;
+      });
+    },
+
+    toggleTodo(state, action) {
+      const toggleTodo = state.todos.find(
+        (todo) => todo.id === action.payload.id
+      );
+      toggleTodo.completed = !toggleTodo.completed;
+    },
   },
 });
 

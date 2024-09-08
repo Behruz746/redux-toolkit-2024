@@ -1,6 +1,6 @@
 import React from "react";
 
-function InputField({ text, setText, addTodo }) {
+function InputField({ text, setText, handleSubmit }) {
   return (
     <>
       <div>
@@ -11,7 +11,7 @@ function InputField({ text, setText, addTodo }) {
             onChange={(e) => setText(e.target.value)}
           />
         </label>
-        <button onClick={() => addTodo(text)}>Add Todo </button>
+        <button onClick={() => handleSubmit(text)}>Add Todo </button>
       </div>
     </>
   );
